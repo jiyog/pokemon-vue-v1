@@ -1,0 +1,56 @@
+* {margin: 0; padding: 0;}
+
+#root {
+	margin: 0 auto;
+	width: 800px;
+}
+
+.sprite {
+	padding: 10px;
+	margin: 20px 40px;
+}
+
+.sprite .dragon, .sprite .turtle {
+	display: inline-block;
+}
+
+.control {
+	width: 700px;
+	margin: 50px auto;
+	padding: 0px 10px;
+}
+
+.control button {
+	color: white;
+	padding: 7px 50px;
+	border: none;
+}
+
+.control #attack {
+	background-color: #16a085;
+}
+
+.control #power {
+	background-color: #27ae60;
+}
+
+.control #heal {
+	background-color: #c0392b;
+	
+}
+
+.control #surrender {
+	background-color: #2980b9;
+}
+
+.blood {
+	width: 200px;
+	border: 2px solid #000000;
+	height: 30px;
+	margin-left: 25px;	
+}
+
+.blood #_dragon, .blood #_turtle {
+	height: 30px;
+	background: crimson;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<div id="root">
+		<div class="result">
+			<h1 v-show="ended" style="text-align: center;">You Win</h1>
+		</div>
+		<div class="sprite">
+			<div class="dragon">
+				<img src="images/01.png" width="300" height="300" alt="">
+				<div class="blood">
+					<div id="_dragon"></div>
+				</div>
+			</div>
+			<div class="turtle">
+				<img src="images/02.png" alt="">
+				<div class="blood">
+					<div id="_turtle" v-bind:style="{width: health + '%'}"></div>
+				</div>
+			</div>
+		</div>
+		<div class="control">
+			<button id="attack" v-on:click="attack">Attack</button>
+			<button id="power" v-on:click="power">Power</button>
+			<button id="heal" v-on:click="heal">Heal</button>
+			<button id="surrender" v-on:click="surrender">Surrender</button>
+		</div>
+		<p style="text-align: center;">Pokemon ver 1.0.0 - <a href="https://github.com/tung21081999">JiyongFake</a></p>
+	</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script type="text/javascript">
+    	new Vue({
+    		el: '#root',
+    		data: {
+    			health: 100,
+    			ended: false
+    		},
+    		methods: {
+    			attack: function() {
+    				this.health -= 10;
+    				if (this.health <= 0) {
+    					this.ended = true;
+    				}
+    			},
+
+    			power: function() {
+    				this.health -= 20;
+    				if (this.health <= 15 || this.health <= 0) {
+    					this.ended = true;
+    				}
+    			},
+    			
+    			heal: function() {
+    				this.health += 5;
+    				if (this.health > 100) {
+    					this.health = 100;
+    				}
+    			},
+
+    			surrender: function() {
+    				this.ended = true;
+    			}
+    		}
+    	});
+    </script>
+</body>
+</html>
